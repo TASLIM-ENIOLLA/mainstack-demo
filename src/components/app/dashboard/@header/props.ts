@@ -6,10 +6,10 @@ import { Analytics, Revenue } from "./svg";
 
 export const navs = [
   { Icon: Home, name: "home", href: "" },
-  { Icon: Analytics, name: "analytics", href: "/analytics" },
-  { Icon: Revenue, name: "revenue", href: "/revenue" },
-  { Icon: CRM, name: "CRM", href: "/crm" },
-  { Icon: Apps, name: "apps", href: "/apps" },
+  { Icon: Analytics, name: "analytics", href: "analytics" },
+  { Icon: Revenue, name: "revenue", href: "revenue" },
+  { Icon: CRM, name: "CRM", href: "crm" },
+  { Icon: Apps, name: "apps", href: "apps" },
 ];
 
 export const menuRoutes = [

@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { Fragment } from "react";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/shadcn/ui/button";
 import { Skeleton } from "@/components/shadcn/ui/skeleton";
@@ -18,9 +19,11 @@ import { Bell, Messages } from "./svg";
 import { Hamburger, Logo } from "./svg";
 import { menuRoutes, navs } from "./props";
 
-const NAV_BASEURL = "";
+const NAV_BASEURL = "/";
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="z-5 py-3 top-0 left-0 sticky backdrop-blur">
       <div className="container">
@@ -34,20 +37,25 @@ export function Header() {
               </div>
               <div className="flex-none hidden xl:block">
                 <div className="flex gap-3 items-center">
-                  {navs.map(({ name, href, Icon }, index) => (
-                    <Fragment key={index}>
-                      <div className="flex-none">
-                        <Button asChild size="lg" variant="ghost" className="text-sm font-medium items-center [&_svg]:!size-6">
-                          <Link href={NAV_BASEURL + href}>
-                            <Icon />
-                            <span className="capitalize">
-                              {name}
-                            </span>
-                          </Link>
-                        </Button>
-                      </div>
-                    </Fragment>
-                  ))}
+                  {navs.map(({ name, href, Icon }, index) => {
+                    const derivedHref = NAV_BASEURL + href;
+                    const isActive = derivedHref !== "/" ? pathname.startsWith(derivedHref) : pathname === derivedHref;
+
+                    return (
+                      <Fragment key={index}>
+                        <div className="flex-none">
+                          <Button asChild size="lg" variant={isActive ? "default": "ghost"} className="text-sm font-medium items-center rounded-full [&_svg]:!size-6">
+                            <Link href={derivedHref}>
+                              <Icon />
+                              <span className="capitalize">
+                                {name}
+                              </span>
+                            </Link>
+                          </Button>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
                 </div>
               </div>
               <div className="flex-none">

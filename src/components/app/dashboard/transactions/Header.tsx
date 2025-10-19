@@ -130,8 +130,6 @@ function FilterSheet() {
     });
   }, [searchParams]);
 
-  useEffect(() => console.log({ filters }), [filters]);
-
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>

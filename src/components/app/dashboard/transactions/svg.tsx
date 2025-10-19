@@ -9,8 +9,8 @@ export function Bill() {
       </g>
         <defs>
           <linearGradient id="paint0_linear_17514_632" x1="4.8" y1="3.375" x2="20.2687" y2="19.5158" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#5C6670"/>
-            <stop offset="1" stop-color="#131316"/>
+            <stop stopColor="#5C6670"/>
+            <stop offset="1" stopColor="#131316"/>
           </linearGradient>
         </defs>
     </svg>
