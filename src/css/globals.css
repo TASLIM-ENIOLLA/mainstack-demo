@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./vars.css";
+@import "./theme.css";
+
+@layer base {
+  * {
+    outline-color: var(--color-ring);
+    border-color: var(--color-border);
+  }
+
+  body {
+    color: var(--color-foreground);
+    background: var(--color-background);
+  }
+}
+
+@layer component {
+  .container {
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+
+  .sentence {
+    display: inline-block;
+  }
+  .sentence::first-letter {
+    text-transform: uppercase;
+  }
+
+  .one-line {
+    overflow: hidden;
+    display: -webkit-box;
+
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
